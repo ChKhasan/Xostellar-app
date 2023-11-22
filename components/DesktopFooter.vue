@@ -6,8 +6,7 @@
         <div class="container small">
           <div class="top">
             <h4 class="title">
-              Oilaviy mehmon <br />
-              <span>uylari ro‘yxati</span>
+              <img src="@/assets/img/white.svg" alt="" class="brand" />
             </h4>
           </div>
           <div class="grid">
@@ -203,11 +202,12 @@ export default {};
 
 <style scoped>
 .wrap {
-  padding-bottom: 74px;
+}
+.brand {
+  width: 200px;
 }
 .cardo {
-  /* border-radius: 32px; */
-  background: var(--Blue-dark, #002E18);
+  background: var(--Blue-dark, #002e18);
   padding: 48px 0 68px 0;
   position: relative;
 }

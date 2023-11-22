@@ -37,7 +37,24 @@
             </td>
             <td>
               <NuxtLink :to="`/hotels/${item.id}`">
-                <p class="num">{{ item.phone_number }}</p>
+                <p class="num">
+                  {{ item.phone_number }}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M10.5521 6.71083L13.8413 9.99999L10.5521 13.2892M6.17625 9.99999H13.8313M17.7771 9.99999C17.7771 14.2963 14.2942 17.7792 9.99792 17.7792C5.7016 17.7792 2.21875 14.2963 2.21875 9.99999C2.21875 5.70368 5.7016 2.22083 9.99792 2.22083C14.2942 2.22083 17.7771 5.70368 17.7771 9.99999Z"
+                      stroke="#00B55D"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </p>
               </NuxtLink>
             </td>
           </tr>
@@ -82,19 +99,19 @@ export default {
   margin-top: 50px;
 }
 .link a {
-  color: var(--Agro-Blue, #00B55D);
+  color: var(--Agro-Blue, #00b55d);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 19.6px */
   font-family: var(--medium);
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
   padding: 18px 50px;
   transition: 0.4s;
 }
 .link a:hover {
-  background: #00B55D;
+  background: #00b55d;
   color: white;
 }
 @media screen and (max-width: 1024px) {

@@ -3,14 +3,17 @@
     <div class="container">
       <div class="left">
         <NuxtLink to="/" class="title">
-         Xostellar <br />
-          <span>uylari ro‘yxati</span>
+          <img src="@/assets/img/brand.svg" alt="" class="brand" />
         </NuxtLink>
       </div>
       <div class="mid">
         <NuxtLink to="/"> {{ $store.state.translations["main"] }} </NuxtLink>
         <NuxtLink to="/list">
           {{ $store.state.translations["list_title"] }}
+        </NuxtLink>
+        <NuxtLink to="/contacts">
+          {{ $store.state.translations["contacts"] }}
+          {{ $store.state.translations["contacters"] }}
         </NuxtLink>
       </div>
       <div class="right">
@@ -139,7 +142,11 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <input type="text" v-model="search" placeholder="Lux family Guestho" />
+            <input
+              type="text"
+              v-model="search"
+              placeholder="Lux family Guestho"
+            />
           </div>
           <div class="empty" v-show="empty == true">
             <img src="@/assets/img/empty.svg" alt="" />
@@ -267,6 +274,9 @@ export default {
 </script>
 
 <style scoped>
+.brand {
+  width: 200px;
+}
 .container {
   display: flex;
   align-items: center;
@@ -446,7 +456,7 @@ export default {
   gap: 8px;
 }
 .item a span {
-  color: var(--Agro-blue, #00B55D);
+  color: var(--Agro-blue, #00b55d);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

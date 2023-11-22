@@ -73,7 +73,7 @@
                 </p>
                 <a-select
                   v-model="form.region_id"
-                  :placeholder="$store.state.translations[`hostel_owner`]"
+                  :placeholder="$store.state.translations[`hostel_region`]"
                 >
                   <a-select-option
                     v-for="region in regions"
@@ -88,12 +88,12 @@
             <div class="item">
               <a-form-model-item prop="email" class="form-item w-full mb-0">
                 <p class="sup">
-                  {{ $store.state.translations["hostel_address"] }}
+                  {{ $store.state.translations["email"] }}
                 </p>
                 <input
                   v-model="form.email"
                   type="email"
-                  :placeholder="$store.state.translations[`hostel_address`]"
+                  :placeholder="$store.state.translations[`email`]"
                 />
               </a-form-model-item>
             </div>
@@ -504,7 +504,7 @@ form :deep(.ant-select-selection-selected-value) {
   gap: 24px;
 }
 .cancel {
-  color: var(--Agro-Blue, #00B55D);
+  color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
   font-size: 14px;
   font-style: normal;
@@ -512,7 +512,7 @@ form :deep(.ant-select-selection-selected-value) {
   line-height: 140%; /* 19.6px */
   padding: 18px 50px;
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
   background: var(--White, #fff);
   cursor: pointer;
 }
@@ -525,8 +525,8 @@ form :deep(.ant-select-selection-selected-value) {
   line-height: 140%; /* 19.6px */
   padding: 18px 50px;
   border-radius: 16px;
-  background: var(--Agro-blue, #00B55D);
-  border: 1px solid #00B55D;
+  background: var(--Agro-blue, #00b55d);
+  border: 1px solid #00b55d;
   cursor: pointer;
 }
 @media screen and (max-width: 1024px) {
