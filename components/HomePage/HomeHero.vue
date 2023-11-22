@@ -35,7 +35,7 @@ export default {};
   top: 0;
   left: 0;
   background: #0201056f;
-  border-radius: 32px;
+  /* border-radius: 32px; */
 }
 .vector {
   position: absolute;
