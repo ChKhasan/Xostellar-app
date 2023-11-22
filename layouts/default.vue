@@ -57,7 +57,7 @@ export default {
         },
       });
 
-      await this.$store.commit("getTranslations", translations);
+      await this.$store.commit("getTranslations", translations.data);
     },
   },
 };
