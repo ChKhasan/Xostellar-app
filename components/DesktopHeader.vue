@@ -288,9 +288,9 @@ export default {
 
         localStorage.setItem("authToken", res.data.data.token);
 
-        console.log(res);
+        // console.log(res);
       } catch (error) {
-        console.log("error");
+        // console.log("error");
       }
     },
   },
