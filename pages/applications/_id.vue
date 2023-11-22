@@ -57,7 +57,7 @@
                   </span>
                 </p>
                 <p class="ant-upload-text">
-                  {{ $store.state.translations["fire_security"] }}
+                  {{ $store.state.translations["fire_secturity"] }}
                 </p>
               </a-upload-dragger>
             </div>
@@ -258,12 +258,8 @@ export default {
       type: "",
       options: [
         {
-          label: "Nodavlat Tashkiloti",
-          value: "Davlat",
-        },
-        {
-          label: "Davlat Tashkiloti",
-          value: "Nodavlat",
+          label: this.$store.state.translations["input_value"],
+          value: "Registry",
         },
       ],
       fileTypes: {
@@ -274,7 +270,6 @@ export default {
         cadastre: "",
       },
       headers: {},
-      hotel_id: 1,
     };
   },
 
