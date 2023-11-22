@@ -51,7 +51,7 @@
                 disabled
                 style="width: 100%"
                 v-model="form.region_id"
-                :placeholder="$store.state.translations[`hostel_owner`]"
+                :placeholder="$store.state.translations[`hostel_region`]"
               >
                 <a-select-option
                   v-for="region in regions"
@@ -64,13 +64,13 @@
             </div>
             <div class="item">
               <p class="sup">
-                {{ $store.state.translations["hostel_address"] }}
+                {{ $store.state.translations["email"] }}
               </p>
               <input
                 v-model="form.email"
                 disabled
                 type="email"
-                :placeholder="$store.state.translations[`hostel_address`]"
+                :placeholder="$store.state.translations[`email`]"
               />
             </div>
             <div class="item">
@@ -122,7 +122,7 @@
                   :headers="headers"
                   v-decorator="['dragger']"
                   name="file"
-                  action="https://api.hotels.ndc.uz/api/files"
+                  action="https://hotels.ndc.uz/api/files"
                   @change="handleChange"
                 >
                   <p class="ant-upload-drag-icon">
@@ -393,7 +393,7 @@ export default {
   gap: 24px;
 }
 .cancel {
-  color: var(--Agro-Blue, #00B55D);
+  color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
   font-size: 14px;
   font-style: normal;
@@ -401,7 +401,7 @@ export default {
   line-height: 140%; /* 19.6px */
   padding: 18px 50px;
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
   background: var(--White, #fff);
 }
 .confirm {
@@ -413,8 +413,8 @@ export default {
   line-height: 140%; /* 19.6px */
   padding: 18px 50px;
   border-radius: 16px;
-  background: var(--Agro-blue, #00B55D);
-  border: 1px solid #00B55D;
+  background: var(--Agro-blue, #00b55d);
+  border: 1px solid #00b55d;
 }
 @media screen and (max-width: 1024px) {
   .items {

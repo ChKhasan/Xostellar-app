@@ -5,8 +5,6 @@
       <div class="body">
         <h4>{{ message?.title }}</h4>
         <span class="editor" v-html="message?.message"></span>
-        <h4>{{ message?.title }}</h4>
-        <span class="editor" v-html="message?.message"></span>
       </div>
 
       <div class="link">
@@ -43,6 +41,7 @@ export default {
         },
       });
       this.message = hotel?.data;
+      this.loading = false;
     } else {
       this.$router.push("/");
     }
@@ -97,9 +96,9 @@ export default {
   display: flex;
   margin-top: 12px;
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
   padding: 18px 50px;
-  color: var(--Agro-Blue, #00B55D);
+  color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
   font-size: 14px;
   font-style: normal;
@@ -108,7 +107,7 @@ export default {
   transition: 0.4s;
 }
 .link a:hover {
-  background: #00B55D;
+  background: #00b55d;
   color: white;
 }
 @media screen and (max-width: 1024px) {

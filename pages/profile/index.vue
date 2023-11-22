@@ -29,7 +29,9 @@
                 <p class="sup">
                   {{ $store.state.translations["hostel_address"] }}
                 </p>
-                <p class="name">ЎЗБЕКИСТОН, ТОШКЕНТ ШАҲРИ, БОҒОБОД МФЙ, 15 МАВЗЕ</p>
+                <p class="name">
+                  ЎЗБЕКИСТОН, ТОШКЕНТ ШАҲРИ, БОҒОБОД МФЙ, 15 МАВЗЕ
+                </p>
               </div>
             </div>
           </div>
@@ -184,6 +186,7 @@ export default {
 
         this.hotels = hotels?.data;
         this.hotel = hotels?.data[0];
+        this.$router.push("/profile");
       } catch (e) {
         this.$router.push("/");
       }
@@ -253,9 +256,9 @@ export default {
   display: flex;
   margin-top: 12px;
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
   padding: 18px 50px;
-  color: var(--Agro-Blue, #00B55D);
+  color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
   font-size: 14px;
   font-style: normal;
@@ -266,7 +269,7 @@ export default {
   align-items: center;
 }
 .link a:hover {
-  background: #00B55D;
+  background: #00b55d;
   color: white;
 }
 
@@ -296,7 +299,7 @@ export default {
   line-height: 150%; /* 27px */
 }
 .mid a {
-  color: var(--Agro-blue, #00B55D);
+  color: var(--Agro-blue, #00b55d);
   font-family: var(--semi);
   font-size: 14px;
   font-style: normal;
@@ -304,14 +307,14 @@ export default {
   line-height: 140%; /* 19.6px */
   padding: 18px 50px;
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
   display: inline-flex;
   align-items: center;
   gap: 8px;
   transition: 0.4s;
 }
 .mid a:hover {
-  background: #00B55D;
+  background: #00b55d;
   color: white;
 }
 .mid a svg path {
@@ -321,7 +324,7 @@ export default {
   stroke: white;
 }
 .app {
-  background: #00B55D !important;
+  background: #00b55d !important;
   color: white !important;
   display: flex;
   align-items: center;

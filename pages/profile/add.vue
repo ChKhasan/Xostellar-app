@@ -157,7 +157,7 @@
                     :headers="headers"
                     v-decorator="['dragger']"
                     name="file"
-                    action="https://api.hotels.ndc.uz/api/files"
+                    action="https://hotels.ndc.uz/api/files"
                     @change="handleChange"
                   >
                     <p class="ant-upload-drag-icon">
@@ -192,9 +192,9 @@
             </a-form-item>
           </div>
           <div class="buttons">
-            <button type="submit" class="cancel">
+            <NuxtLink to="/profile" type="submit" class="cancel">
               {{ $store.state.translations["cancel"] }}
-            </button>
+            </NuxtLink>
             <button type="button" class="confirm" @click="sumbit">
               {{ $store.state.translations["save"] }}
             </button>
