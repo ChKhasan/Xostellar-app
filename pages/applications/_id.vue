@@ -57,7 +57,7 @@
                   </span>
                 </p>
                 <p class="ant-upload-text">
-                  {{ $store.state.translations["fire_security"] }}
+                  {{ $store.state.translations["fire_secturity"] }}
                 </p>
               </a-upload-dragger>
             </div>
@@ -258,12 +258,8 @@ export default {
       type: "",
       options: [
         {
-          label: "Nodavlat Tashkiloti",
-          value: "Davlat",
-        },
-        {
-          label: "Davlat Tashkiloti",
-          value: "Nodavlat",
+          label: this.$store.state.translations["input_value"],
+          value: "Registry",
         },
       ],
       fileTypes: {
@@ -274,7 +270,7 @@ export default {
         cadastre: "",
       },
       headers: {},
-      hotel_id: 1,
+      hotel_id: "",
     };
   },
 
@@ -293,7 +289,7 @@ export default {
     async onSubmit() {
       const formData = {
         type: this.type,
-        hotel_id: this.hotel_id,
+        hotel_id: this.$route.params.id,
         fire_safety: this.fileTypes.fire_safety,
         sanitation: this.fileTypes.sanitation,
         certificate: this.fileTypes.certificate,

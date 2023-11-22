@@ -145,7 +145,7 @@
             <input
               type="text"
               v-model="search"
-              placeholder="Lux family Guestho"
+              :placeholder="$store.state.translations[`search`]"
             />
           </div>
           <div class="empty" v-show="empty == true">
