@@ -270,7 +270,6 @@ export default {
         cadastre: "",
       },
       headers: {},
-      hotel_id: "",
     };
   },
 
