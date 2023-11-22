@@ -4,10 +4,28 @@
       <div class="left">
         <h4 class="title">{{ $store.state.translations["main_title"] }}</h4>
         <p class="txt">
-          {{ $store.state.translations["about_txt1"] }}
+          Аxborot tizimi orqali qogʼoz hujjat aylanishi kamayadi, reyestrdan koʼchirma berish toliq elektron shaklda amalga oshiriladi, ishchi jarayonga sarflanadigan vaqt bir necha barobariga qisqartirish imkonini beradi.
         </p>
         <p class="second">
-          {{ $store.state.translations["about_txt1"] }}
+          Ushbu axborot tizimi yordamida quyidagi jarayonlar raqamlashtiriladi:
+         <ul>
+         <li>
+         
+– Xostellar, oʼtovli va chodirli oromgohlar Reyestri, shuningdek har bir xostel, oʼtovli va chodirli oromgohlar kerakli maʼlumotlari bilan toʼldirilgan yagona maʼlumotlar bazasini shakllantirish;
+
+         </li>
+         <li>
+          – Oʼzbekiston Respublikasi hududida faoliyat yuritayotgan xostellar, oʼtovli va chodirli oromgohlar reyestrini yuritish;
+
+         </li>
+         <li>
+          – qoʼmita tomonidan xostellar, oʼtovli va chodirli oromgohlar faoliyati nazoratini yuritish;
+         </li>
+         <li>
+– statistik maʼlumotlarni yuritish.
+         
+         </li>
+         </ul>
         </p>
       </div>
       <div class="right">
