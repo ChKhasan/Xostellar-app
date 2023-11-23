@@ -93,13 +93,13 @@
             </div>
             <div class="item">
               <p class="sup">
-                {{ $store.state.translations["hostel_address"] }}
+                {{ $store.state.translations["address"] }}
               </p>
               <input
                 disabled
                 type="text"
                 v-model="form.address"
-                :placeholder="$store.state.translations[`hostel_address`]"
+                :placeholder="$store.state.translations[`address`]"
               />
             </div>
             <div class="item">
@@ -211,7 +211,8 @@ export default {
     };
   },
   async mounted() {
-    if (!localStorage.getItem("authToken")) await this.$router.push(this.localePath("/auth"));
+    if (!localStorage.getItem("authToken"))
+      await this.$router.push(this.localePath("/auth"));
     this.loading = true;
     this.headers.authorization = `Bearer ${localStorage.getItem("authToken")}`;
     const hotel = await hotelsApi.getHotelById(this.$axios, {

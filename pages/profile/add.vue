@@ -123,12 +123,12 @@
             <div class="item">
               <a-form-model-item prop="address" class="form-item w-full mb-0">
                 <p class="sup">
-                  {{ $store.state.translations["hostel_address"] }}
+                  {{ $store.state.translations["address"] }}
                 </p>
                 <input
                   type="text"
                   v-model="form.address"
-                  :placeholder="$store.state.translations[`hostel_address`]"
+                  :placeholder="$store.state.translations[`address`]"
                 />
               </a-form-model-item>
             </div>
@@ -320,7 +320,8 @@ export default {
     };
   },
   async mounted() {
-    if (!localStorage.getItem("authToken")) await this.$router.push(this.localePath("/auth"));
+    if (!localStorage.getItem("authToken"))
+      await this.$router.push(this.localePath("/auth"));
     this.headers.authorization = `Bearer ${localStorage.getItem("authToken")}`;
   },
   methods: {

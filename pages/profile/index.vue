@@ -11,19 +11,23 @@
                 <p class="sup">
                   {{ $store.state.translations["hostel_owner"] }}
                 </p>
-                <p class="name">{{ $store.state.user["name"] }}</p>
+                <p class="name">{{ $store.state.user["name"] || "----" }}</p>
               </div>
               <div class="item">
                 <p class="sup">{{ $store.state.translations["jshshir"] }}</p>
-                <p class="name">32001986500022</p>
+                <p class="name">{{ $store.state.user["pin"] || "----" }}</p>
               </div>
               <div class="item">
                 <p class="sup">{{ $store.state.translations["passport"] }}</p>
-                <p class="name">AD3665673</p>
+                <p class="name">
+                  {{ $store.state.user["pport_no"] || "----" }}
+                </p>
               </div>
               <div class="item">
                 <p class="sup">{{ $store.state.translations["date_birth"] }}</p>
-                <p class="name">1998-01-20</p>
+                <p class="name">
+                  {{ $store.state.user["birth_date"] || "----" }}
+                </p>
               </div>
               <div class="item">
                 <p class="sup">
@@ -175,6 +179,8 @@ export default {
     };
   },
   async mounted() {
+    console.log(this.$store.state.user);
+
     if (localStorage.getItem("authToken")) {
       try {
         const hotels = await hotelsApi.getUserHotels(this.$axios, {
@@ -195,7 +201,6 @@ export default {
       }
     } else {
       this.$router.push(this.localePath("/auth"));
-
     }
   },
 };
