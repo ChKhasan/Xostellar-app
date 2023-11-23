@@ -258,7 +258,8 @@ export default {
       type: "",
       options: [
         {
-          label: this.$store.state.translations["input_value"],
+          label:
+            "Mehmon uyini Xostellar, oʼtovli va chodirli oromgohlar yagona Reyestriga kiritish",
           value: "Registry",
         },
       ],

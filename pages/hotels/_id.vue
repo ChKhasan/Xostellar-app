@@ -12,7 +12,7 @@
           <p class="text">{{ hotel.legal_name }}</p>
         </div>
         <div class="item">
-          <p class="sup">{{ $store.state.translations["phone_number"] }}</p>
+          <p class="sup">{{ $store.state.translations["phone_numbers"] }}</p>
           <p class="link">
             <span>
               <svg
@@ -119,7 +119,11 @@
           :zoom="10"
           style="height: 700px"
         >
-          <ymap-marker :coords="coords" marker-id="123" hint-content="some hint" />
+          <ymap-marker
+            :coords="coords"
+            marker-id="123"
+            hint-content="some hint"
+          />
         </yandex-map>
       </div>
     </div>
@@ -178,7 +182,7 @@ export default {
   border-radius: 8px;
   background: var(--Apple-Grey, #f5f5f7);
   padding: 32px 22px;
-  border-left: 5px solid #00B55D;
+  border-left: 5px solid #00b55d;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -204,7 +208,7 @@ export default {
   display: grid;
   grid-template-columns: 0.7fr 9.3fr;
   align-items: center;
-  color: var(--Agro-Blue, #00B55D);
+  color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
   font-size: 20px;
   font-style: normal;

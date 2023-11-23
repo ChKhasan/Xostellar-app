@@ -170,16 +170,16 @@
       <div class="map">
         <div style="position: relative; overflow: hidden">
           <a
-            href="https://yandex.uz/maps/org/172769933675/?utm_medium=mapframe&utm_source=maps"
+            href="https://yandex.uz/maps/org/88609236733/?utm_medium=mapframe&utm_source=maps"
             style="color: #eee; font-size: 12px; position: absolute; top: 0px"
-            >Государственный комитет Республики Узбекистан по экологии и охране
-            окружающей среды</a
+            >Государственный комитет Республики Узбекистан по развитию
+            туризма</a
           ><a
             href="https://yandex.uz/maps/10335/tashkent/category/government_ministries_services/184105716/?utm_medium=mapframe&utm_source=maps"
             style="color: #eee; font-size: 12px; position: absolute; top: 14px"
             >Министерства, ведомства, государственные службы в Ташкенте</a
           ><iframe
-            src="https://yandex.uz/map-widget/v1/?ll=69.320842%2C41.291932&mode=search&oid=172769933675&ol=biz&sctx=ZAAAAAgBEAAaKAoSCcueBDbnUVFAERGPxMvTp0RAEhIJTl5kAn6N3z8RCHQmbaruyz8iBgABAgMEBSgKOABA1boGSAFqAnV6nQHNzEw9oAEAqAEAvQEhcB5DwgEL6%2FKPz4MFm4fymifqAQDyAQD4AQCCAoEBT%2BKAmHpiZWtpc3RvbiBSZXNwdWJsaWthc2kgRWtvbG9naXlhLCBhdHJvZi1tdWhpdG5pIG11aG9mYXphIHFpbGlzaCB2YSBpcWxpbSBv4oCYemdhcmlzaGkgdmF6aXJsaWdpIGh1enVyaWRhZ2kgVHVyaXptIHFv4oCYbWl0YXNpigIAkgIAmgIMZGVza3RvcC1tYXBz&sll=69.320842%2C41.291932&sspn=0.157211%2C0.095014&text=O%E2%80%98zbekiston%20Respublikasi%20Ekologiya%2C%20atrof-muhitni%20muhofaza%20qilish%20va%20iqlim%20o%E2%80%98zgarishi%20vazirligi%20huzuridagi%20Turizm%20qo%E2%80%98mitasi&z=13.2"
+            src="https://yandex.uz/map-widget/v1/?ll=69.284755%2C41.335788&mode=poi&poi%5Bpoint%5D=69.282520%2C41.337167&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D88609236733&z=16.6"
             width="560"
             height="400"
             frameborder="1"

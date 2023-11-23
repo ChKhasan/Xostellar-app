@@ -67,7 +67,7 @@
         <div class="flexer">
           <div class="left">
             <img
-              :src="`https://api.hotels.ndc.uz/stores/temp/bdPHgnv3kPxMP7s3LyNdacDTxeapmtzVpKJI53XI.png`"
+              :src="`https://hotels.ndc.uz/storage/${hotel?.img}`"
               alt=""
               class="pic"
             />

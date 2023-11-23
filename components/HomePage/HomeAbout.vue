@@ -4,29 +4,24 @@
       <div class="left">
         <h4 class="title">{{ $store.state.translations["main_title"] }}</h4>
         <p class="txt">
-          Аxborot tizimi orqali qogʼoz hujjat aylanishi kamayadi, reyestrdan koʼchirma berish toliq elektron shaklda amalga oshiriladi, ishchi jarayonga sarflanadigan vaqt bir necha barobariga qisqartirish imkonini beradi.
+          {{ $store.state.translations["about_one"] }}
         </p>
         <p class="second">
-          Ushbu axborot tizimi yordamida quyidagi jarayonlar raqamlashtiriladi:
-         <ul>
-         <li>
-         
-– Xostellar, oʼtovli va chodirli oromgohlar Reyestri, shuningdek har bir xostel, oʼtovli va chodirli oromgohlar kerakli maʼlumotlari bilan toʼldirilgan yagona maʼlumotlar bazasini shakllantirish;
-
-         </li>
-         <li>
-          – Oʼzbekiston Respublikasi hududida faoliyat yuritayotgan xostellar, oʼtovli va chodirli oromgohlar reyestrini yuritish;
-
-         </li>
-         <li>
-          – qoʼmita tomonidan xostellar, oʼtovli va chodirli oromgohlar faoliyati nazoratini yuritish;
-         </li>
-         <li>
-– statistik maʼlumotlarni yuritish.
-         
-         </li>
-         </ul>
+          {{ $store.state.translations["about_1"] }}
         </p>
+
+        <ul>
+          <li>
+            {{ $store.state.translations["about_2"] }}
+          </li>
+          <li>
+            {{ $store.state.translations["about_3"] }}
+          </li>
+          <li>
+            {{ $store.state.translations["about_4"] }}
+          </li>
+          <li>{{ $store.state.translations["about_5"] }}</li>
+        </ul>
       </div>
       <div class="right">
         <img src="@/assets/img/about.png" alt="" class="pic" />
@@ -66,14 +61,15 @@ export default {};
   line-height: 150%; /* 24px */
   margin-bottom: 20px;
 }
-.second {
+.second,
+li {
   color: var(--Black, #020105);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
   padding-left: 8px;
-  border-left: 4px solid #00B55D;
+  border-left: 4px solid #00b55d;
 }
 .pic {
   width: 100%;
