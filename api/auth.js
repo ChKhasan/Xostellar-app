@@ -15,6 +15,13 @@ export default {
     }
     return res;
   },
+  async logOut(axios,params) {
+    let res;
+    if (axios) {
+      res = await axios.get("/logout",{...params});
+    }
+    return res;
+  },
   async getUserInfo(axios, params) {
     let res;
 
