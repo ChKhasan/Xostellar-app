@@ -53,7 +53,7 @@ export default {
     if (localStorage.getItem("authToken")) {
       this.__GET__MESSAGES();
     } else {
-      this.$router.push("/");
+      this.$router.push("/auth");
     }
   },
   methods: {

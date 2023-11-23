@@ -6,10 +6,7 @@
         <div class="input">
           <p class="sup">{{ $store.state.translations["app_type"] }}</p>
 
-          <a-select
-            v-model="type"
-            :placeholder="$store.state.translations[`app_type`]"
-          >
+          <a-select v-model="type" :placeholder="$store.state.translations[`app_type`]">
             <a-select-option
               v-for="option in options"
               :key="option.id"
@@ -21,10 +18,7 @@
         </div>
         <div class="grid">
           <a-form-item>
-            <div
-              class="dropbox"
-              :class="{ disable: fileList.fire_safety.length > 0 }"
-            >
+            <div class="dropbox" :class="{ disable: fileList.fire_safety.length > 0 }">
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'fire_safety')"
                 :file-list="fileList.fire_safety"
@@ -63,10 +57,7 @@
             </div>
           </a-form-item>
           <a-form-item>
-            <div
-              class="dropbox"
-              :class="{ disable: fileList.sanitation.length > 0 }"
-            >
+            <div class="dropbox" :class="{ disable: fileList.sanitation.length > 0 }">
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'sanitation')"
                 :file-list="fileList.sanitation"
@@ -105,10 +96,7 @@
             </div>
           </a-form-item>
           <a-form-item>
-            <div
-              class="dropbox"
-              :class="{ disable: fileList.certificate.length > 0 }"
-            >
+            <div class="dropbox" :class="{ disable: fileList.certificate.length > 0 }">
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'certificate')"
                 :file-list="fileList.certificate"
@@ -189,10 +177,7 @@
             </div>
           </a-form-item>
           <a-form-item>
-            <div
-              class="dropbox"
-              :class="{ disable: fileList.cadastre.length > 0 }"
-            >
+            <div class="dropbox" :class="{ disable: fileList.cadastre.length > 0 }">
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'cadastre')"
                 :file-list="fileList.cadastre"
@@ -275,6 +260,7 @@ export default {
   },
 
   mounted() {
+    if (!localStorage.getItem("authToken")) this.$router.push("/auth");
     this.headers.authorization = `Bearer ${localStorage.getItem("authToken")}`;
   },
 
@@ -408,11 +394,7 @@ form :deep(.ant-select-selection) {
   justify-content: center;
   padding-left: 24px;
 }
-form
-  :deep(
-    .ant-select-selection__placeholder,
-    .ant-select-search__field__placeholder
-  ) {
+form :deep(.ant-select-selection__placeholder, .ant-select-search__field__placeholder) {
   color: var(--Black, #020105);
   font-family: var(--medium);
   font-size: 18px;
@@ -454,11 +436,7 @@ form :deep(.dropbox.disable .ant-upload.ant-upload-drag) {
     align-items: center;
   }
   form :deep(.ant-select-selection-selected-value),
-  form
-    :deep(
-      .ant-select-selection__placeholder,
-      .ant-select-search__field__placeholder
-    ) {
+  form :deep(.ant-select-selection__placeholder, .ant-select-search__field__placeholder) {
     font-size: 16px;
     font-style: normal;
     font-weight: 500;

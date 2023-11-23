@@ -39,7 +39,9 @@ export default {
             });
             this.$store.commit("getUserInfo", data?.data?.data);
             this.$store.commit("checkAuth", true);
-          } catch (e) {}
+          } catch (e) {
+            localStorage.removeItem("authToken");
+          }
         }
       } catch (e) {
       } finally {
