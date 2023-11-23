@@ -27,10 +27,10 @@
               </div>
               <div class="item">
                 <p class="sup">
-                  {{ $store.state.translations["hostel_address"] }}
+                  {{ $store.state.translations["address"] }}
                 </p>
                 <p class="name">
-                  ЎЗБЕКИСТОН, ТОШКЕНТ ШАҲРИ, БОҒОБОД МФЙ, 15 МАВЗЕ
+                  {{ hotel?.address || "----" }}
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@
               </div>
               <div class="item">
                 <p class="sup">
-                  {{ $store.state.translations["hostel_address"] }}
+                  {{ $store.state.translations["address"] }}
                 </p>
                 <p class="name">
                   {{ hotel?.address || "----" }}
@@ -169,7 +169,7 @@ import hotelsApi from "@/api/hotels";
 export default {
   data() {
     return {
-      title: "Mening profilim",
+      title: this.$store.state.translations["my_profile"],
       hotels: [],
       hotel: {},
     };
@@ -191,7 +191,6 @@ export default {
       }
     } else {
       this.$router.push("/auth");
-
     }
   },
 };

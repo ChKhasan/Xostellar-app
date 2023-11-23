@@ -6,16 +6,16 @@
       <div class="tabler">
         <table>
           <tr>
-            <th>{{ $store.state.translations["registry_number"] }}</th>
+            <th>{{ $store.state.translations["registry_num"] }}</th>
             <th>{{ $store.state.translations["hostel_name"] }}</th>
             <th>{{ $store.state.translations["hostel_region"] }}</th>
-            <th>{{ $store.state.translations["hostel_address"] }}</th>
+            <th>{{ $store.state.translations["address"] }}</th>
             <th>{{ $store.state.translations["hostel_status"] }}</th>
             <th>{{ $store.state.translations["hostel_phone"] }}</th>
           </tr>
           <tr v-for="item in hotels?.data" :key="item.id">
             <td>
-              <p class="strong">{{ item.register_number }}</p>
+              <p class="strong">{{ item?.register_number || "—" }}</p>
             </td>
             <td>
               <p class="strong">{{ item.name }}</p>

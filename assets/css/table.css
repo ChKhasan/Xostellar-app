@@ -87,7 +87,7 @@ table tr:nth-child(odd) {
   border-radius: 62px;
   background: #eff0f9;
   margin: 0 auto;
-  color: #00b55d;
+  color: rgb(0, 130, 181);
 }
 .num {
   color: var(--Agro-Blue, #00b55d);
