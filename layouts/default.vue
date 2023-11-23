@@ -28,7 +28,11 @@ export default {
         this.$store.commit("getUserInfo", data?.data?.data);
         this.$store.commit("checkAuth");
       } catch (e) {
-        localStorage.removeItem("authToken");
+        if (e.response.status == 401) {
+          await localStorage.removeItem("authToken");
+          this.$store.commit("checkAuth");
+          this.$router.push(this.localePath("/auth"));
+        }
       }
     }
   },

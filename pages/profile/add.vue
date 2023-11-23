@@ -192,7 +192,7 @@
             </a-form-item>
           </div>
           <div class="buttons">
-            <NuxtLink to="/profile" type="submit" class="cancel">
+            <NuxtLink :to="localePath('/profile')" type="submit" class="cancel">
               {{ $store.state.translations["cancel"] }}
             </NuxtLink>
             <button type="button" class="confirm" @click="sumbit">
@@ -320,7 +320,7 @@ export default {
     };
   },
   async mounted() {
-    if (!localStorage.getItem("authToken")) await this.$router.push("/auth");
+    if (!localStorage.getItem("authToken")) await this.$router.push(this.localePath("/auth"));
     this.headers.authorization = `Bearer ${localStorage.getItem("authToken")}`;
   },
   methods: {

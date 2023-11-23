@@ -260,7 +260,7 @@ export default {
   },
 
   mounted() {
-    if (!localStorage.getItem("authToken")) this.$router.push("/auth");
+    if (!localStorage.getItem("authToken")) this.$router.push(this.localePath("/auth"));
     this.headers.authorization = `Bearer ${localStorage.getItem("authToken")}`;
   },
 
@@ -303,7 +303,7 @@ export default {
       this.fileTypes.state_certificate = "";
       this.fileTypes.cadastre = "";
 
-      this.$router.push("/applications");
+      this.$router.push(this.localePath("/applications"));
     },
   },
 };

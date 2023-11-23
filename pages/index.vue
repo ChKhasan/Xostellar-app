@@ -39,9 +39,13 @@ export default {
             });
             this.$store.commit("getUserInfo", data?.data?.data);
             this.$store.commit("checkAuth");
-            this.$router.push("/profile");
+            this.$router.push(this.localePath("/profile"));
           } catch (e) {
-            localStorage.removeItem("authToken");
+            if (e.response.status == 401) {
+              await localStorage.removeItem("authToken");
+              this.$store.commit("checkAuth");
+              this.$router.push(this.localePath("/auth"));
+            }
           }
         }
       } catch (e) {
