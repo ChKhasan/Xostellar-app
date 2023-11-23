@@ -10,7 +10,7 @@
             <th>{{ $store.state.translations["polozheniye"] }}</th>
             <th>{{ $store.state.translations["send_date"] }}</th>
             <th>{{ $store.state.translations["end_date"] }}</th>
-            <th>{{ $store.state.translations["registry_copy"] }}</th>
+            <th>{{ $store.state.translations["registry_num"] }}</th>
             <th>{{ $store.state.translations["event"] }}</th>
           </tr>
           <tr v-for="item in applications" :key="item.id">
@@ -38,10 +38,14 @@
               <p class="weak">{{ item.closed_at }}</p>
             </td>
             <td>
-              <p class="strong">000368</p>
+              <p class="strong">
+                <span>
+                  {{ item?.hotel?.register_number || "—" }}
+                </span>
+              </p>
             </td>
             <td>
-              <div class="button">
+              <div v-show="item.status == `accepted`" class="button">
                 <button>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -82,6 +86,8 @@
 
 <script>
 import applicationApi from "@/api/application";
+import hotelsApi from "@/api/hotels";
+import moment from "moment";
 
 export default {
   data() {
@@ -89,12 +95,32 @@ export default {
       applications: "",
       title: this.$store.state.translations["applications"],
       totalPage: 1,
+      hotels: [],
+      hotel: {},
     };
   },
 
   async mounted() {
     if (localStorage.getItem("authToken")) {
       this.getApps();
+    } else {
+      this.$router.push(this.localePath("/auth"));
+    }
+
+    if (localStorage.getItem("authToken")) {
+      try {
+        const hotels = await hotelsApi.getUserHotels(this.$axios, {
+          params: {},
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        });
+
+        this.hotels = hotels?.data;
+        this.hotel = hotels?.data[0];
+      } catch (e) {
+        this.$router.push("/");
+      }
     } else {
       this.$router.push(this.localePath("/auth"));
     }
@@ -109,6 +135,8 @@ export default {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
           },
         });
+
+        console.log(applications);
 
         this.applications = applications.data;
         this.totalPage = applications.total;
@@ -141,8 +169,8 @@ export default {
 .link a {
   padding: 18px 50px;
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
-  color: var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
+  color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
   font-size: 14px;
   font-style: normal;
@@ -152,7 +180,7 @@ export default {
   display: inline-flex;
 }
 .link a:hover {
-  background: #00B55D;
+  background: #00b55d;
   color: white;
 }
 @media screen and (max-width: 1024px) {

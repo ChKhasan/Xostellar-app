@@ -40,7 +40,7 @@ export default {
   async fetch() {
     const translations = await translationsApi.getTranslations(this.$axios, {
       headers: {
-        Language: this.$i18n.locale,
+        lang: this.$i18n.locale,
       },
     });
 
@@ -57,7 +57,7 @@ export default {
     async currentLang(val) {
       const translations = await translationsApi.getTranslations(this.$axios, {
         headers: {
-          Language: this.$i18n.locale,
+          lang: this.$i18n.locale,
         },
       });
 

@@ -41,7 +41,8 @@ export default {};
 .container {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 6fr 4fr;
+  gap: 40px;
 }
 .title {
   color: var(--Blue-dark, #002856);
