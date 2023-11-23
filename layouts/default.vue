@@ -28,7 +28,7 @@ export default {
         this.$store.commit("getUserInfo", data?.data?.data);
         this.$store.commit("checkAuth", true);
       } catch (e) {
-        localStorage.removeItem('authToken')
+        localStorage.removeItem("authToken");
       }
     }
   },
@@ -39,8 +39,6 @@ export default {
         Language: this.$i18n.locale,
       },
     });
-
-    console.log(translations);
 
     await this.$store.commit("getTranslations", translations.data);
   },
