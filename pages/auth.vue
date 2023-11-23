@@ -26,6 +26,9 @@ export default {
       link: "",
     };
   },
+  mounted() {
+    if (localStorage.getItem("authToken")) this.$router.push("/profile");
+  },
   async fetch() {
     const linkData = await authApi.getLink(this.$axios);
     this.link = linkData?.data?.data;
@@ -51,10 +54,10 @@ export default {
 .link {
   padding: 18px 50px;
   border-radius: 16px;
-  border: 1px solid var(--Agro-Blue, #00B55D);
+  border: 1px solid var(--Agro-Blue, #00b55d);
   display: inline-flex;
   gap: 8px;
-  color: var(--Agro-Blue, #00B55D);
+  color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
   font-size: 14px;
   font-style: normal;
@@ -77,7 +80,7 @@ export default {
   }
   .link {
     border-radius: 8px;
-    border: 1px solid var(--Agro-Blue, #00B55D);
+    border: 1px solid var(--Agro-Blue, #00b55d);
   }
 }
 </style>

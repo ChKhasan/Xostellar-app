@@ -156,7 +156,6 @@ export default {
 
     this.hotels = hotels;
     this.hotel = hotel.data;
-
     this.coords[0] = hotel.data.lat?.replace(",", ".");
     this.coords[1] = hotel.data.lon?.replace(",", ".");
   },
