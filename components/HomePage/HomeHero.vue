@@ -2,7 +2,12 @@
   <div class="wrap">
     <div class="">
       <div class="cardo">
-        <img src="@/assets/img/vector.png" class="vector" alt="" />
+        <img
+          v-if="$store.state.imageShow"
+          src="@/assets/img/vector.png"
+          class="vector"
+          alt=""
+        />
         <h4 class="title">{{ $store.state.translations["main_title"] }}</h4>
       </div>
     </div>
@@ -46,7 +51,7 @@ export default {};
 .title {
   color: var(--White, var(--White, #fff));
   text-align: center;
-  font-size: 48px;
+  font-size: var(--48);
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
@@ -66,7 +71,7 @@ export default {};
   .title {
     max-width: 90%;
     margin: 0 auto;
-    font-size: 24px;
+    font-size: var(--24);
     font-style: normal;
     font-weight: 600;
     line-height: 130%;

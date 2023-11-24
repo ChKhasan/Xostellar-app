@@ -23,7 +23,10 @@
           <a-form-item>
             <div
               class="dropbox"
-              :class="{ disable: fileList.fire_safety.length > 0 }"
+              :class="{
+                disable: fileList.fire_safety.length > 0,
+                error: error == true,
+              }"
             >
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'fire_safety')"
@@ -65,7 +68,10 @@
           <a-form-item>
             <div
               class="dropbox"
-              :class="{ disable: fileList.sanitation.length > 0 }"
+              :class="{
+                disable: fileList.sanitation.length > 0,
+                error: error == true,
+              }"
             >
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'sanitation')"
@@ -107,7 +113,10 @@
           <a-form-item>
             <div
               class="dropbox"
-              :class="{ disable: fileList.certificate.length > 0 }"
+              :class="{
+                disable: fileList.certificate.length > 0,
+                error: error == true,
+              }"
             >
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'certificate')"
@@ -149,7 +158,10 @@
           <a-form-item>
             <div
               class="dropbox"
-              :class="{ disable: fileList.state_certificate.length > 0 }"
+              :class="{
+                disable: fileList.state_certificate.length > 0,
+                error: error == true,
+              }"
             >
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'state_certificate')"
@@ -191,7 +203,10 @@
           <a-form-item>
             <div
               class="dropbox"
-              :class="{ disable: fileList.cadastre.length > 0 }"
+              :class="{
+                disable: fileList.cadastre.length > 0,
+                error: error == true,
+              }"
             >
               <a-upload-dragger
                 @change="($event) => handleChange($event, 'cadastre')"
@@ -232,16 +247,7 @@
           </a-form-item>
         </div>
         <div class="link">
-          <button
-            v-show="
-              fileList.state_certificate.length != 0 &&
-              fileList.cadastre.length != 0 &&
-              fileList.certificate.length != 0 &&
-              fileList.fire_safety.length != 0 &&
-              fileList.sanitation.length != 0
-            "
-            type="submit"
-          >
+          <button type="submit">
             {{ $store.state.translations["send_it"] }}
           </button>
         </div>
@@ -279,6 +285,7 @@ export default {
         cadastre: "",
       },
       headers: {},
+      error: false,
     };
   },
 
@@ -307,17 +314,35 @@ export default {
         cadastre: this.fileTypes.cadastre,
       };
 
-      const res = await applicationApi.sendApplication({
-        data: formData,
-        params: {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        },
-      });
+      if (
+        this.fileList.state_certificate.length > 0 &&
+        this.fileList.cadastre.length > 0 &&
+        this.fileList.fire_safety.length > 0 &&
+        this.fileList.sanitation.length > 0 &&
+        this.fileList.certificate.length > 0
+      ) {
+        try {
+          const res = await applicationApi.sendApplication({
+            data: formData,
+            params: {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+              },
+            },
+          });
 
-      if (res && res.status === 201) {
+          this.$router.push(this.localePath("/applications"));
+        } catch (e) {
+          this.error = true;
+          this.$notification["error"]({
+            message: this.$store.state.translations["old_app"],
+          });
+        }
       } else {
+        this.error = true;
+        this.$notification["error"]({
+          message: this.$store.state.translations["all_files"],
+        });
       }
 
       this.type = "";
@@ -326,8 +351,6 @@ export default {
       this.fileTypes.certificate = "";
       this.fileTypes.state_certificate = "";
       this.fileTypes.cadastre = "";
-
-      this.$router.push(this.localePath("/applications"));
     },
   },
 };
@@ -352,7 +375,7 @@ form {
   border: 1px solid var(--Agro-Blue, #00b55d);
   color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
-  font-size: 14px;
+  font-size: var(--14);
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 19.6px */
@@ -366,7 +389,7 @@ form {
 }
 .sup {
   color: var(--grey-80, #353437);
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 27px */
@@ -395,7 +418,7 @@ form {
 .grid :deep(.ant-upload.ant-upload-drag p.ant-upload-text) {
   color: var(--Black, #020105);
   font-family: var(--medium);
-  font-size: 16px;
+  font-size: var(--16);
   font-style: normal;
   font-weight: 500;
   line-height: 150%; /* 24px */
@@ -425,7 +448,7 @@ form
   ) {
   color: var(--Black, #020105);
   font-family: var(--medium);
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 500;
   line-height: 150%; /* 27px */
@@ -438,7 +461,7 @@ form
 form :deep(.ant-select-selection-selected-value) {
   color: var(--Black, #020105);
   font-family: var(--medium);
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
@@ -449,9 +472,16 @@ form :deep(.ant-select-selection-selected-value) {
 form :deep(.dropbox.disable .ant-upload.ant-upload-drag) {
   pointer-events: none;
   opacity: 0.5;
+  border-color: #e1e3f5 !important;
+}
+form :deep(.dropbox.error .ant-upload.ant-upload-drag) {
+  border-color: red;
 }
 form :deep(.ant-upload-list-item-card-actions) {
   opacity: 1;
+}
+form :deep(.ant-upload-list-item-card-actions svg path) {
+  color: red !important;
 }
 @media screen and (max-width: 1024px) {
   .container {
@@ -472,7 +502,7 @@ form :deep(.ant-upload-list-item-card-actions) {
       .ant-select-selection__placeholder,
       .ant-select-search__field__placeholder
     ) {
-    font-size: 16px;
+    font-size: var(--16);
     font-style: normal;
     font-weight: 500;
     line-height: 150%;

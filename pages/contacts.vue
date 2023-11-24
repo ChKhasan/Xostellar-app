@@ -171,12 +171,22 @@
         <div style="position: relative; overflow: hidden">
           <a
             href="https://yandex.uz/maps/org/88609236733/?utm_medium=mapframe&utm_source=maps"
-            style="color: #eee; font-size: 12px; position: absolute; top: 0px"
+            style="
+              color: #eee;
+              font-size: var(--12);
+              position: absolute;
+              top: 0px;
+            "
             >Государственный комитет Республики Узбекистан по развитию
             туризма</a
           ><a
             href="https://yandex.uz/maps/10335/tashkent/category/government_ministries_services/184105716/?utm_medium=mapframe&utm_source=maps"
-            style="color: #eee; font-size: 12px; position: absolute; top: 14px"
+            style="
+              color: #eee;
+              font-size: var(--12);
+              position: absolute;
+              top: 14px;
+            "
             >Министерства, ведомства, государственные службы в Ташкенте</a
           ><iframe
             src="https://yandex.uz/map-widget/v1/?ll=69.284755%2C41.335788&mode=poi&poi%5Bpoint%5D=69.282520%2C41.337167&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D88609236733&z=16.6"
@@ -225,7 +235,7 @@ export default {
 }
 .sup {
   color: var(--grey-80, #353437);
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 27px */
@@ -234,7 +244,7 @@ export default {
 .text {
   color: var(--Blue-dark, #002856);
   font-family: var(--semi);
-  font-size: 20px;
+  font-size: var(--20);
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 30px */
@@ -248,7 +258,7 @@ export default {
   align-items: center;
   color: var(--Agro-Blue, #3c4bdc);
   font-family: var(--semi);
-  font-size: 20px;
+  font-size: var(--20);
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 30px */
@@ -270,7 +280,7 @@ export default {
     margin-bottom: 40px;
   }
   .sup {
-    font-size: 14px;
+    font-size: var(--14);
     font-style: normal;
     font-weight: 400;
     line-height: 160%;
@@ -278,7 +288,7 @@ export default {
   }
   .text,
   .link {
-    font-size: 16px;
+    font-size: var(--16);
     font-style: normal;
     font-weight: 500;
     line-height: 150%;

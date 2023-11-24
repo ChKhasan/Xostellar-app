@@ -2,7 +2,12 @@
   <div class="wrap">
     <div class="">
       <div class="cardo">
-        <img src="@/assets/img/vector-left.png" alt="" class="vector-left" />
+        <img
+          v-if="$store.state.imageShow"
+          src="@/assets/img/vector-left.png"
+          alt=""
+          class="vector-left"
+        />
         <div class="content">
           <h4 class="title">{{ title }}</h4>
           <div class="crumbs">
@@ -36,7 +41,12 @@
             </ol>
           </div>
         </div>
-        <img src="@/assets/img/vector-right.png" alt="" class="vector-right" />
+        <img
+          v-if="$store.state.imageShow"
+          src="@/assets/img/vector-right.png"
+          alt=""
+          class="vector-right"
+        />
       </div>
     </div>
   </div>
@@ -71,7 +81,7 @@ export default {
 .title {
   color: var(--White, var(--White, #fff));
   text-align: center;
-  font-size: 48px;
+  font-size: var(--48);
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
@@ -108,7 +118,7 @@ export default {
 .last,
 .current {
   color: var(--White, var(--White, #fff));
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 27px */
@@ -122,7 +132,7 @@ export default {
     border-radius: 20px;
   }
   .title {
-    font-size: 24px;
+    font-size: var(--24);
     font-style: normal;
     font-weight: 600;
     line-height: 130%;
@@ -130,7 +140,7 @@ export default {
   }
   .last,
   .current {
-    font-size: 14px;
+    font-size: var(--14);
   }
   .crumbs ol {
     gap: 4px;
