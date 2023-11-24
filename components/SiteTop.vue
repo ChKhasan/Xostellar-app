@@ -50,14 +50,14 @@ export default {
 
 <style scoped>
 .cardo {
-  background: url(@/assets/img/top.jpg) center no-repeat;
+  background: url(@/assets/img/hero-2.jpg) center no-repeat;
   background-size: cover;
   /* border-radius: 32px; */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 313px;
+  min-height: 440px;
 }
 .cardo::after {
   content: "";
@@ -67,7 +67,6 @@ export default {
   top: 0;
   left: 0;
   background: #0201056f;
-  border-radius: 32px;
 }
 .title {
   color: var(--White, var(--White, #fff));

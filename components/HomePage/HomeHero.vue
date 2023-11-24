@@ -18,7 +18,7 @@ export default {};
   /* margin-top: 24px; */
 }
 .cardo {
-  background: url(@/assets/img/hero.jpg) center no-repeat;
+  background: url(@/assets/img/hero-2.jpg) center no-repeat;
   background-size: cover;
   /* border-radius: 32px; */
   position: relative;
