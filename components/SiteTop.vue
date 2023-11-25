@@ -2,7 +2,12 @@
   <div class="wrap">
     <div class="">
       <div class="cardo">
-        <img src="@/assets/img/vector-left.png" alt="" class="vector-left" />
+        <img
+          v-if="$store.state.imageShow"
+          src="@/assets/img/vector-left.png"
+          alt=""
+          class="vector-left"
+        />
         <div class="content">
           <h4 class="title">{{ title }}</h4>
           <div class="crumbs">
@@ -36,7 +41,12 @@
             </ol>
           </div>
         </div>
-        <img src="@/assets/img/vector-right.png" alt="" class="vector-right" />
+        <img
+          v-if="$store.state.imageShow"
+          src="@/assets/img/vector-right.png"
+          alt=""
+          class="vector-right"
+        />
       </div>
     </div>
   </div>
@@ -50,14 +60,14 @@ export default {
 
 <style scoped>
 .cardo {
-  background: url(@/assets/img/top.jpg) center no-repeat;
+  background: url(@/assets/img/hero-2.jpg) center no-repeat;
   background-size: cover;
   /* border-radius: 32px; */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 313px;
+  min-height: 440px;
 }
 .cardo::after {
   content: "";
@@ -67,12 +77,11 @@ export default {
   top: 0;
   left: 0;
   background: #0201056f;
-  border-radius: 32px;
 }
 .title {
   color: var(--White, var(--White, #fff));
   text-align: center;
-  font-size: 48px;
+  font-size: var(--48);
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
@@ -109,7 +118,7 @@ export default {
 .last,
 .current {
   color: var(--White, var(--White, #fff));
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 27px */
@@ -123,7 +132,7 @@ export default {
     border-radius: 20px;
   }
   .title {
-    font-size: 24px;
+    font-size: var(--24);
     font-style: normal;
     font-weight: 600;
     line-height: 130%;
@@ -131,7 +140,7 @@ export default {
   }
   .last,
   .current {
-    font-size: 14px;
+    font-size: var(--14);
   }
   .crumbs ol {
     gap: 4px;

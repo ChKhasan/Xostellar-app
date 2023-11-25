@@ -136,8 +136,6 @@ export default {
           },
         });
 
-        console.log(applications);
-
         this.applications = applications.data;
         this.totalPage = applications.total;
       } catch (e) {
@@ -172,7 +170,7 @@ export default {
   border: 1px solid var(--Agro-Blue, #00b55d);
   color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
-  font-size: 14px;
+  font-size: var(--14);
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 19.6px */

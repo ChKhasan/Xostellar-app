@@ -24,7 +24,12 @@
         </ul>
       </div>
       <div class="right">
-        <img src="@/assets/img/about.png" alt="" class="pic" />
+        <img
+          v-if="$store.state.imageShow"
+          src="@/assets/img/about.png"
+          alt=""
+          class="pic"
+        />
       </div>
     </div>
   </div>
@@ -46,7 +51,7 @@ export default {};
 }
 .title {
   color: var(--Blue-dark, #002856);
-  font-size: 32px;
+  font-size: var(--32);
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 38.4px */
@@ -56,7 +61,7 @@ export default {};
 }
 .txt {
   color: var(--Black, #020105);
-  font-size: 16px;
+  font-size: var(--16);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
@@ -65,7 +70,7 @@ export default {};
 .second,
 li {
   color: var(--Black, #020105);
-  font-size: 16px;
+  font-size: var(--16);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
@@ -84,7 +89,7 @@ li {
     display: block;
   }
   .title {
-    font-size: 20px;
+    font-size: var(--20);
     font-style: normal;
     font-weight: 600;
     line-height: 140%;

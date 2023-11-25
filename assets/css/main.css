@@ -24,11 +24,20 @@
   --semi: "Interfaces-semi";
 
   --decor: "Jost";
+
+  --12: 12px;
+  --14: 14px;
+  --16: 16px;
+  --18: 18px;
+  --20: 20px;
+  --24: 24px;
+  --32: 32px;
+  --48: 48px;
 }
 
 body {
   font-family: var(--regular) !important;
-  font-size: 32px;
+  font-size: var(--32);
 }
 
 html,
@@ -174,7 +183,7 @@ table {
   background: #7b7dff;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00B55D;
+  background: #00b55d;
 }
 button {
   cursor: pointer;
@@ -183,4 +192,7 @@ button {
   .container {
     padding: 0 16px;
   }
+}
+body.mono {
+  mix-blend-mode: luminosity;
 }

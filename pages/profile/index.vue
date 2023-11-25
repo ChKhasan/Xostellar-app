@@ -11,19 +11,23 @@
                 <p class="sup">
                   {{ $store.state.translations["hostel_owner"] }}
                 </p>
-                <p class="name">{{ $store.state.user["name"] }}</p>
+                <p class="name">{{ $store.state.user["name"] || "----" }}</p>
               </div>
               <div class="item">
                 <p class="sup">{{ $store.state.translations["jshshir"] }}</p>
-                <p class="name">32001986500022</p>
+                <p class="name">{{ $store.state.user["pin"] || "----" }}</p>
               </div>
               <div class="item">
                 <p class="sup">{{ $store.state.translations["passport"] }}</p>
-                <p class="name">AD3665673</p>
+                <p class="name">
+                  {{ $store.state.user["pport_no"] || "----" }}
+                </p>
               </div>
               <div class="item">
                 <p class="sup">{{ $store.state.translations["date_birth"] }}</p>
-                <p class="name">1998-01-20</p>
+                <p class="name">
+                  {{ $store.state.user["birth_date"] || "----" }}
+                </p>
               </div>
               <div class="item">
                 <p class="sup">
@@ -67,6 +71,7 @@
         <div class="flexer">
           <div class="left">
             <img
+              v-if="$store.state.imageShow"
               :src="`https://hotels.ndc.uz/storage/${hotel?.img}`"
               alt=""
               class="pic"
@@ -195,7 +200,6 @@ export default {
       }
     } else {
       this.$router.push(this.localePath("/auth"));
-
     }
   },
 };
@@ -236,7 +240,7 @@ export default {
 .sup {
   margin-bottom: 8px;
   color: var(--grey-80, #353437);
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 27px */
@@ -245,7 +249,7 @@ export default {
   max-width: 464px;
   color: var(--Blue-dark, #002856);
   font-family: var(--semi);
-  font-size: 20px;
+  font-size: var(--20);
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 30px */
@@ -264,7 +268,7 @@ export default {
   padding: 18px 50px;
   color: var(--Agro-Blue, #00b55d);
   font-family: var(--semi);
-  font-size: 14px;
+  font-size: var(--14);
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 19.6px */
@@ -288,7 +292,7 @@ export default {
   margin-bottom: 24px;
   color: var(--Black, #020105);
   font-family: var(--semi);
-  font-size: 24px;
+  font-size: var(--24);
   font-style: normal;
   font-weight: 600;
   line-height: 120%; /* 28.8px */
@@ -297,7 +301,7 @@ export default {
   margin-bottom: 40px;
   color: var(--Black, #020105);
   font-family: var(--medium);
-  font-size: 18px;
+  font-size: var(--18);
   font-style: normal;
   font-weight: 500;
   line-height: 150%; /* 27px */
@@ -305,7 +309,7 @@ export default {
 .mid a {
   color: var(--Agro-blue, #00b55d);
   font-family: var(--semi);
-  font-size: 14px;
+  font-size: var(--14);
   font-style: normal;
   font-weight: 600;
   line-height: 140%; /* 19.6px */
@@ -360,14 +364,14 @@ export default {
     padding: 16px 16px 40px 16px;
   }
   .sup {
-    font-size: 14px;
+    font-size: var(--14);
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
     margin-bottom: 8px;
   }
   .name {
-    font-size: 16px;
+    font-size: var(--16);
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
