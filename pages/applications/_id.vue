@@ -107,7 +107,7 @@
               </a-upload-dragger>
             </div>
           </a-form-item>
-          <a-form-item>
+          <!-- <a-form-item>
             <div
               class="dropbox"
               :class="{
@@ -151,7 +151,7 @@
                 </p>
               </a-upload-dragger>
             </div>
-          </a-form-item>
+          </a-form-item> -->
           <a-form-item>
             <div
               class="dropbox"
@@ -263,7 +263,7 @@ export default {
       fileList: {
         fire_safety: [],
         sanitation: [],
-        certificate: [],
+        // certificate: [],
         state_certificate: [],
         cadastre: [],
       },
@@ -277,7 +277,7 @@ export default {
       fileTypes: {
         fire_safety: "",
         sanitation: "",
-        certificate: "",
+        // certificate: "",
         state_certificate: "",
         cadastre: "",
       },
@@ -310,7 +310,7 @@ export default {
         hotel_id: this.$route.params.id,
         fire_safety: this.fileTypes.fire_safety,
         sanitation: this.fileTypes.sanitation,
-        certificate: this.fileTypes.certificate,
+        // certificate: this.fileTypes.certificate,
         state_certificate: this.fileTypes.state_certificate,
         cadastre: this.fileTypes.cadastre,
       };
@@ -319,8 +319,7 @@ export default {
         this.fileList.state_certificate.length > 0 &&
         this.fileList.cadastre.length > 0 &&
         this.fileList.fire_safety.length > 0 &&
-        this.fileList.sanitation.length > 0 &&
-        this.fileList.certificate.length > 0
+        this.fileList.sanitation.length > 0 
       ) {
         try {
           const res = await applicationApi.sendApplication({
@@ -352,7 +351,7 @@ export default {
       // this.type = "";
       this.fileTypes.fire_safety = "";
       this.fileTypes.sanitation = "";
-      this.fileTypes.certificate = "";
+      // this.fileTypes.certificate = "";
       this.fileTypes.state_certificate = "";
       this.fileTypes.cadastre = "";
     },
