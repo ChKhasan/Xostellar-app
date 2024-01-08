@@ -6,16 +6,13 @@
         <div class="input">
           <p class="sup">{{ $store.state.translations["app_type"] }}</p>
 
-          <a-select
-            v-model="type"
-            :placeholder="$store.state.translations[`value`]"
-          >
+          <a-select v-model="application_type_id" :placeholder="$store.state.translations[`value`]">
             <a-select-option
-              v-for="option in options"
+              v-for="option in appTypes.data"
               :key="option.id"
-              :value="option.value"
+              :value="option.id"
             >
-              {{ option.label }}
+              {{ option.name }}
             </a-select-option>
           </a-select>
         </div>
@@ -270,7 +267,7 @@ export default {
         state_certificate: [],
         cadastre: [],
       },
-      type: "",
+      application_type_id: "",
       options: [
         {
           label: this.$store.state.translations["value"],
@@ -285,13 +282,17 @@ export default {
         cadastre: "",
       },
       headers: {},
+      appTypes: {},
       error: false,
     };
   },
 
-  mounted() {
-    if (!localStorage.getItem("authToken"))
-      this.$router.push(this.localePath("/auth"));
+  async mounted() {
+    const appTypes = await applicationApi.getTypes(this.$axios);
+
+    this.appTypes = appTypes;
+    this.application_type_id = appTypes?.data[0]?.id;
+    if (!localStorage.getItem("authToken")) this.$router.push(this.localePath("/auth"));
     this.headers.authorization = `Bearer ${localStorage.getItem("authToken")}`;
   },
 
@@ -305,7 +306,7 @@ export default {
 
     async onSubmit() {
       const formData = {
-        type: this.type,
+        application_type_id: this.application_type_id,
         hotel_id: this.$route.params.id,
         fire_safety: this.fileTypes.fire_safety,
         sanitation: this.fileTypes.sanitation,
@@ -330,12 +331,15 @@ export default {
               },
             },
           });
-
+          this.$notification["success"]({
+            message: this.$store.state.translations["send_app1"],
+          });
           this.$router.push(this.localePath("/applications"));
         } catch (e) {
+          console.log(e.response);
           this.error = true;
           this.$notification["error"]({
-            message: this.$store.state.translations["old_app"],
+            message: e.response.data?.message,
           });
         }
       } else {
@@ -345,7 +349,7 @@ export default {
         });
       }
 
-      this.type = "";
+      // this.type = "";
       this.fileTypes.fire_safety = "";
       this.fileTypes.sanitation = "";
       this.fileTypes.certificate = "";
@@ -441,11 +445,7 @@ form :deep(.ant-select-selection) {
   justify-content: center;
   padding-left: 24px;
 }
-form
-  :deep(
-    .ant-select-selection__placeholder,
-    .ant-select-search__field__placeholder
-  ) {
+form :deep(.ant-select-selection__placeholder, .ant-select-search__field__placeholder) {
   color: var(--Black, #020105);
   font-family: var(--medium);
   font-size: var(--18);
@@ -497,11 +497,7 @@ form :deep(.ant-upload-list-item-card-actions svg path) {
     align-items: center;
   }
   form :deep(.ant-select-selection-selected-value),
-  form
-    :deep(
-      .ant-select-selection__placeholder,
-      .ant-select-search__field__placeholder
-    ) {
+  form :deep(.ant-select-selection__placeholder, .ant-select-search__field__placeholder) {
     font-size: var(--16);
     font-style: normal;
     font-weight: 500;

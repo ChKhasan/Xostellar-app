@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="add cardo" v-if="hotels.length < 1">
+      <div class="add cardo" v-if="hotels?.length < 1">
         <div class="mid">
           <h4>{{ $store.state.translations["hostel"] }}</h4>
           <p>{{ $store.state.translations["no_added"] }}</p>
@@ -69,7 +69,7 @@
 
       <div class="cardo" v-else>
         <div class="flexer">
-          <div class="left">
+          <div class="left" v-if="hotel?.img">
             <img
               v-if="$store.state.imageShow"
               :src="`https://hotels.ndc.uz/storage/${hotel?.img}`"
@@ -123,9 +123,7 @@
                   {{ $store.state.translations["hostel_owner"] }}
                 </p>
                 <p class="name">
-                  {{ hotel?.director_surname || "------" }}
-                  {{ hotel?.director_name }}
-                  {{ hotel?.director_fathers_name }}
+                  {{ hotel?.director_full_name || "------" }}
                 </p>
               </div>
               <div class="item">
