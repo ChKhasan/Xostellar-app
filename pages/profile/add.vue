@@ -39,7 +39,7 @@
               </a-form-model-item>
             </div>
             <div class="item">
-              <a-form-model-item prop="website" class="form-item w-full mb-0">
+              <a-form-model-item class="form-item w-full mb-0">
                 <p class="sup">
                   {{ $store.state.translations["website"] }}
                 </p>
@@ -221,13 +221,7 @@ export default {
             trigger: "change",
           },
         ],
-        website: [
-          {
-            required: true,
-            message: this.$store.state.translations["required_value"],
-            trigger: "change",
-          },
-        ],
+
         email: [
           {
             required: true,
@@ -296,7 +290,7 @@ export default {
         name: "",
         phone_number: "",
         phone_number1: "",
-        website: "",
+        website: null,
         email: "",
         region_id: undefined,
         legal_name: "",
