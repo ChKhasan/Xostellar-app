@@ -6,7 +6,10 @@
         <div class="input">
           <p class="sup">{{ $store.state.translations["app_type"] }}</p>
 
-          <a-select v-model="application_type_id" :placeholder="$store.state.translations[`value`]">
+          <a-select
+            v-model="application_type_id"
+            :placeholder="$store.state.translations[`value`]"
+          >
             <a-select-option
               v-for="option in appTypes.data"
               :key="option.id"
@@ -319,7 +322,7 @@ export default {
         this.fileList.state_certificate.length > 0 &&
         this.fileList.cadastre.length > 0 &&
         this.fileList.fire_safety.length > 0 &&
-        this.fileList.sanitation.length > 0 
+        this.fileList.sanitation.length > 0
       ) {
         try {
           const res = await applicationApi.sendApplication({
@@ -335,7 +338,6 @@ export default {
           });
           this.$router.push(this.localePath("/applications"));
         } catch (e) {
-          console.log(e.response);
           this.error = true;
           this.$notification["error"]({
             message: e.response.data?.message,
