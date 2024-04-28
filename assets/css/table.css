@@ -89,6 +89,9 @@ table tr:nth-child(odd) {
   margin: 0 auto;
   color: rgb(0, 130, 181);
 }
+.status {
+  white-space: nowrap;
+}
 .num {
   color: var(--Agro-Blue, #00b55d);
   font-size: var(--14);
