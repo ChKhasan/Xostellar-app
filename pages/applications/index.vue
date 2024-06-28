@@ -47,7 +47,7 @@
             <td>
               <p class="strong">
                 <span>
-                  {{ item?.hotel?.register_number || "—" }}
+                  {{ item?.hotel?.formatted_register_number || "—" }}
                 </span>
               </p>
             </td>
